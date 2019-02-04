@@ -6,12 +6,22 @@
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
-		/* Oefening 2
-        Bouw een html pagina met een "+" knop, een "-" knop en een tekstveld waarin het aantal staat die verhoogd of verlaagd wordt volgens de aangeklikte knoppen. */
+		/* Oefening 3
+	  Bouw een html pagina met een knop en een tekstveld. Het doel is om een getal tussen 0 en 100 te 
+	  vinden. Voor elk antwoord antwoordt de pagina:
+
+    meer
+	minder
+	juist
+	Wanneer het antwoord is gevonden, krijgen we het aantal tests dat we hebben nodig gehad te zien 
+	via een alert. */
 		$(document).ready(function(){
 		$("#form").html(`<input type="text" value=" ">`); 
 		$("input").after("<button >+</button>");
 		$("button").after("<button>-</button>");
+
+		let num = $("input").value;
+		
 		$(function(){
 			let i=1;
 			$("button").eq(0).click(function(){
@@ -27,7 +37,7 @@
 });	
 			
 		</script>
-		<title>jQuery : Opdrachten-3.2</title>
+		<title>jQuery : Opdrachten-3.3</title>
 	</head>
 	<body>
     <div id="form">
