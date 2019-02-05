@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		/* Oefening 1 :
+Maak een lijst met drie elementen (Rock, Paper, Scissors). Voeg een SPEEL button toe. Wanneer er op SPEEL word gedrukt, kies de computer een element willekeurig uit (Rock, Paper of Scissors). Vergelijk het met het door de speler gekozen element om te zien wie er gewonnen heeft tussen de mens en de machine.
+
+Bonus: Voeg een overwinning en nederlaag teller toe en geef het percentage van de overwinning tegen de computer weer. */
+
+$(document).ready(function(){
+		$("body").html(`<button id="scissors">Scissors</button>`); 
+		$("#scissors").after(`<button id="paper">Paper</button>`); 
+		$("#paper").after(`<button id="rock">Rock</button>`); 
+		$("#rock").after(`<h3 id="result">Result</h3>`); 
+		
+
+		var computerChoice = function() {
+        var random = Math.random();
+        if (random < 0.333) {
+	      return  'rock';
+        } else if(random < 0.67777) {
+	      return 'paper';
+        } else {
+	      return 'scissors';
+        } 
+        };
+
+		
+		$("#scissors").on('click', function(){
+         var result = compare('scissors', computerChoice());
+         $("#result").html(result);
+         });
+
+        $('#rock').on('click', function(){
+         var result = compare('rock', computerChoice());
+        $("#result").html(result);
+        });
+
+       $('#paper').on('click', function(){
+         var result = compare('paper', computerChoice());
+         $("#result").html(result);
+        });
+
+
+      var compare = function(me, opponent) {
+       if(me === 'rock') {
+    
+        if(opponent === 'rock') {
+          return 'Tie';
+        } else if (opponent === 'paper') {
+        return 'My rock lost to paper';
+        } else if (opponent === 'scissors') {
+        return 'My rock crushed scissors!';
+       }
+    
+     } else if (me === 'paper') {
+    
+        if(opponent === 'paper') {
+        return 'Tie';
+      } else if (opponent === 'rock') {
+        return 'My paper beat rock';
+      } else if (opponent === 'scissors') {
+        return 'My paper got cut by scissors!';
+    }
+    } else if (me === 'scissors') {
+    
+      if(opponent === 'scissors') {
+        return 'Tie';
+      } else if (opponent === 'paper') {
+        return 'My scissor beat paper';
+      } else if (opponent === 'rock') {
+        return 'My scissor got crushed!';
+    }
+  } 
+};
+ 		   
+});	
+			
+		</script>
+		<title>jQuery : Opdrachten-4.1</title>
+	</head>
+	<body>
+    
+
+	</div>
+	
+
+    </body>
+</html>
