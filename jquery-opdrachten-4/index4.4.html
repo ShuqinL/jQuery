@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="style.css" rel="stylesheet" type="text/css" />
+	
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
@@ -13,18 +13,24 @@
 		dan wordt de presentatie zin: Lesley Forn, Geboren op 11/11/1987 in Amsterdam, momenteel een 
 		Coach in Genk. */
 $(document).ready(function(){
-		$("body").html(`<input id="name" type="text" value=" " placeholder="Name"></br>`); 
-		$("#name").after(`<input id="firstname" type="text" value=" ">`); 
-		$("#firstname").after(`<input id="birthday" type="text" value=" ">`); 
-		$("#birthday").after(`<input id="birthplace" type="text" value=" ">`); 
-		$("#birthplace").after(`<input id="work" type="text" value=" ">`); 
-		$("#work").after(`<input id="company" type="text" value=" ">`); 
-		$("#company").after("<button>Click me</button>");
+		$("body").html(`Name<input id="name" type="text" value=" " placeholder="name">`); 
+		$("#name").after(`</br></br>Firstname<input id="firstname" type="text" value=" ">`); 
+		$("#firstname").after(`</br></br>Birthday<input id="birthday" type="text" value=" ">`); 
+		$("#birthday").after(`</br></br>Birthplace<input id="birthplace" type="text" value=" ">`); 
+		$("#birthplace").after(`</br></br>Work<input id="work" type="text" value=" ">`); 
+		$("#work").after(`</br></br>Company<input id="company" type="text" value=" ">`); 
+		$("#company").after(`</br></br><button>Click me</button>`);
+		$("button").after(`</br></br><div id="text"></div>`);
 
 		$(function(){
-			let i=1;
 			$("button").click(function(){
-               $("input").attr("value",i++);
+				let name =$("#name").val();
+				let firstname =$("#firstname").val();
+				let birthday =$("#birthday").val();
+				let birthplace =$("#birthplace").val();
+				let work =$("#work").val();
+				let company =$("#company").val();
+               $("#text").html(name+" "+firstname+", Geboren op "+birthday+ " in "+birthplace+", momenteel een "+work+" in "+company+" .");
 			});
 		});
 	
