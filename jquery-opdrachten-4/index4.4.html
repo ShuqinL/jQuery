@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		/* Maak een formulier aan waarin naam, voornaam, geboortedatum, geboorteplaats, werk en 
+		bedrijf worden aangevraagd. Maak een "Genereer" knop om een korte presentatie zin te maken.
+
+		Voorbeeld: Als de ingevoerde gegevens zijn: Lesley Forn, 11/11/1987, Amsterdam, Coach, Genk 
+		dan wordt de presentatie zin: Lesley Forn, Geboren op 11/11/1987 in Amsterdam, momenteel een 
+		Coach in Genk. */
+$(document).ready(function(){
+		$("body").html(`<input id="name" type="text" value=" " placeholder="Name"></br>`); 
+		$("#name").after(`<input id="firstname" type="text" value=" ">`); 
+		$("#firstname").after(`<input id="birthday" type="text" value=" ">`); 
+		$("#birthday").after(`<input id="birthplace" type="text" value=" ">`); 
+		$("#birthplace").after(`<input id="work" type="text" value=" ">`); 
+		$("#work").after(`<input id="company" type="text" value=" ">`); 
+		$("#company").after("<button>Click me</button>");
+
+		$(function(){
+			let i=1;
+			$("button").click(function(){
+               $("input").attr("value",i++);
+			});
+		});
+	
+  
+
+});	
+			
+		</script>
+		<title>jQuery : Opdrachten-4.4</title>
+	</head>
+	<body>
+    
+
+	</div>
+	
+
+    </body>
+</html>

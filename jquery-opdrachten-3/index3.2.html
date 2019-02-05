@@ -9,16 +9,16 @@
 		/* Oefening 2
         Bouw een html pagina met een "+" knop, een "-" knop en een tekstveld waarin het aantal staat die verhoogd of verlaagd wordt volgens de aangeklikte knoppen. */
 		$(document).ready(function(){
-		$("#form").html(`<input type="text" value=" ">`); 
-		$("input").after("<button >+</button>");
-		$("button").after("<button>-</button>");
+		$("#panel").html("<input type=\"text\" value=\"\">"); 
+		$("#panel").append("<button id=\"add\">+</button>");
+		$("#panel").append("<button id=\"subtract\">-</button>");
 		$(function(){
-			let i=1;
-			$("button").eq(0).click(function(){
-               $("input").attr("value",i++);
+			let x=0;
+			$("#add").click(function(){
+			   $("input").attr("value",++x);
 			});
-			$("button").eq(1).click(function(){
-               $("input").attr("value",i--);
+			$("#subtract").click(function(){
+			   $("input").attr("value",--x);
 			});
 		});
 	
@@ -30,10 +30,6 @@
 		<title>jQuery : Opdrachten-3.2</title>
 	</head>
 	<body>
-    <div id="form">
-
-	</div>
-	
-
+		<div id="panel"></div>
     </body>
 </html>
