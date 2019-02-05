@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+		/* Oefening 3 :
+	   Maak een formulier aan waarin om de naam, voornaam, e-mailadres en telefoonnummer van de gebruiker 
+	   wordt gevraagd.
+
+	   Controleer of het e-mailadres inderdaad een e-mailadres is, controleer of het telefoonnummer alleen 
+	   cijfers bevat en of de naam en voornaam alleen letters of streepjes bevatten. */
+
+$(document).ready(function(){
+		$("body").html(`Name<input id="name" type="text" value=" " placeholder="name">`); 
+		$("#name").after(`</br></br>Firstname<input id="firstname" type="text" value=" ">`); 
+		$("#firstname").after(`</br></br>Email<input id="email" type="text" value=" ">`); 
+		$("#email").after(`</br></br>Telephone number<input id="tel" type="text" value=" ">`); 
+		$("#tel").after(`</br></br><button>Check</button>`); 
+
+		$(function(){
+			$("button").click(function(){
+				let name =$("#name").val();
+				let firstname =$("#firstname").val();
+				let email =$("#email").val();
+				let tel =$("#tel").val();
+			    //check the email adress : it works
+				let pattern =/^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+				/* if (email.match(pattern)){ */
+					if(pattern.test(email)){
+					$("#email").css("border","3px green solid");
+				} else {
+					$("#email").css("border","3px red solid");
+				}
+				//check the telephone number : it works
+				
+					if($.isNumeric(tel)==true){
+					$("#tel").css("border","3px green solid");
+				} else {
+					$("#tel").css("border","3px red solid");
+				}
+				//check the name and firstname: it works
+				    let regex = new RegExp(/^[a-zA-Z\s]+$/);
+                    if(regex.test(name)){
+					$("#name").css("border","3px green solid");
+				} else {
+					$("#name").css("border","3px red solid");
+				}
+
+				    if(regex.test(firstname)){
+					$("#firstname").css("border","3px green solid");
+				} else {
+					$("#firstname").css("border","3px red solid");
+				}
+                
+				
+			});
+		});
+});	
+			
+		</script>
+		<title>jQuery : Opdrachten-4.3</title>
+	</head>
+	<body>
+    
+
+	</div>
+	
+
+    </body>
+</html>
