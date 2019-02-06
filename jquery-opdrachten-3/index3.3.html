@@ -20,35 +20,27 @@ $(document).ready(function(){
 		$("body").html(`<input type="text" value=" ">`); 
 		$("input").before("<p>Please enter  a number between 0 and 100.</p>");
 		$("input").after("<button >Check your number</button>");
+		$("button").after(`<div id="hint"></div>`)
 		
-	$(function(){
-		let num = $("input:text").val();
-		let i=1;
+		let i=0;
 	$("button").click(function(){
-	   while(num!==78){  
-		if(num<78){
-			alert("meer");
-		} else if(num>78){
-			alert("minder");
-		} else {
-			alert("Juist. Je hebt "+ i++ +"keer geraden.")
-		}
-	  } 
-	});
-
-	});	
-
+		let num = new Number($("input:text").val());
 		
-	/* 	$(function(){
-			let i=1;
-			$("button").eq(0).click(function(){
-               $("input").attr("value",i++);
-			});
-			$("button").eq(1).click(function(){
-               $("input").attr("value",i--);
-			});
-		}); */
-	
+		i++;
+		if(num==78){
+			alert("Juist. Je hebt "+ i++ +"keer geraden.");
+		} else {
+            if(num<78){
+			$("#hint").text("meer");
+		 
+		} else if(num>78){
+			$("#hint").text("minder");
+		 
+		} else {
+			alert("Juist. Je hebt "+ i++ +" keer geraden.");
+		   }
+		}
+	});	
 });	
 			
 		</script>
