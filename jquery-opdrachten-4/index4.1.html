@@ -12,40 +12,32 @@ Maak een lijst met drie elementen (Rock, Paper, Scissors). Voeg een SPEEL button
 Bonus: Voeg een overwinning en nederlaag teller toe en geef het percentage van de overwinning tegen de computer weer. */
 
 $(document).ready(function(){
+	//create buttons and h3
 		$("body").html(`<button id="scissors">Scissors</button>`); 
 		$("#scissors").after(`<button id="paper">Paper</button>`); 
 		$("#paper").after(`<button id="rock">Rock</button>`); 
 		$("#rock").after(`<h3 id="result">Result</h3>`); 
-		
-
-		var computerChoice = function() {
-        var random = Math.random();
-        if (random < 0.333) {
-	      return  'rock';
-        } else if(random < 0.67777) {
-	      return 'paper';
-        } else {
-	      return 'scissors';
-        } 
+	//get computer's choice	
+        let choices=["rock","scissors","paper"];
+		let computerChoice = function() {
+			return choices[Math.floor(Math.random()*3)];
         };
-
-		
-		$("#scissors").on('click', function(){
+    //get user's choice	
+		$("#scissors").click(function(){
          var result = compare('scissors', computerChoice());
          $("#result").html(result);
          });
 
-        $('#rock').on('click', function(){
+        $('#rock').click(function(){
          var result = compare('rock', computerChoice());
         $("#result").html(result);
         });
 
-       $('#paper').on('click', function(){
+       $('#paper').click(function(){
          var result = compare('paper', computerChoice());
          $("#result").html(result);
         });
-
-
+    //how to define the winner
       var compare = function(me, opponent) {
        if(me === 'rock') {
     
@@ -58,7 +50,6 @@ $(document).ready(function(){
        }
     
      } else if (me === 'paper') {
-    
         if(opponent === 'paper') {
         return 'Tie';
       } else if (opponent === 'rock') {
@@ -67,7 +58,6 @@ $(document).ready(function(){
         return 'My paper got cut by scissors!';
     }
     } else if (me === 'scissors') {
-    
       if(opponent === 'scissors') {
         return 'Tie';
       } else if (opponent === 'paper') {
