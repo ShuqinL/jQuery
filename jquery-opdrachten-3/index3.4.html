@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<link href="style.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="style.css" rel="stylesheet" type="text/css" /> -->
 		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
@@ -18,40 +18,42 @@ Knop 5: verschijnt weer de rechthoek */
 
 $(document).ready(function(){
 	//make a rectangle
-		$("body").html("<div></div>"); 
-		$("div").css({"border":"2px black solid","height":"50px","width":"200px"});
+		$("body").html(`<div id="rectangle"></div>`); 
+		$("#rectangle").css({"border":"2px black solid","height":"50px","width":"200px"});
 	
 	//make five buttons
-		$("div").after(`<button id="height">Change the height</button>`);
-		$("#height").after(`<button id="green">Change the color to green</button>`);
-		$("#green").after(`<button id="originalColor">Change to the original color</button>`);
-		$("#originalColor").after(`<button id="disappear">Make the rectangle disappear</button>`);
-		$("#disappear").after(`<button id="appear">Make the rectangle appear again</button>`);
+	    $("#rectangle").after(`<div id="buttons"></div>`);
+		$("#buttons").append(`<button id="height">Change the height</button>`);
+		$("#buttons").append(`<button id="green">Change the color to green</button>`);
+		$("#buttons").append(`<button id="originalColor">Change to the original color</button>`);
+		$("#buttons").append(`<button id="disappear">Make the rectangle disappear</button>`);
+		$("#buttons").append(`<button id="appear">Make the rectangle appear again</button>`);
 			    
 		$(function(){
-			let rectHeight=$("div").height;
+			let rectHeight=50;
+			
 			$("button").eq(0).click(function(){
 				
-				console.log(rectHeight);
+				//console.log(rectHeight);
 			    if(rectHeight<=90){	
-                  $("div").css("height",rectHeight+=10);
+                  $("#rectangle").css("height",rectHeight+=10);
 				} else {
-				  $("div").css("height",rectHeight=10);
+				  $("#rectangle").css("height",rectHeight=10);
 				}
 			});
 
 
 			$("button").eq(1).click(function(){
-               $("div").css("background-color","green");
+               $("#rectangle").css("background-color","green");
 			});
 			$("button").eq(2).click(function(){
-			   $("div").css("background-color","white");
+			   $("#rectangle").css("background-color","white");
 			});
 			$("button").eq(3).click(function(){
-			   $("div").hide();
+			   $("#rectangle").hide();
 			});
 			$("button").eq(4).click(function(){
-			   $("div").show();
+			   $("#rectangle").show();
 			});
 		}); 
 	
