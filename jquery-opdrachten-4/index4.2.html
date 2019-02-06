@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	
-		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script>
-		/* Oefening 2 :
+
+		<!-- Oefening 2 :
 		Vraag aan de hand van een formulier naar het salaris, het geslacht en het aantal kinderen van een 
 		persoon.
         Bereken het salaris door de volgende kosten in mindering te brengen:
@@ -19,56 +12,56 @@
        Als de werknemer een vrouw is, krijgt ze 2% korting.
        Indien de werknemer 3 kinderen ten laste heeft, krijgt hij 1% korting.
 	   Als de werknemer 4 kinderen ten laste heeft, krijgt hij 2% korting. */
+		-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 　
+
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
 	   
-$(document).ready(function(){
+$(document).ready(function() {
 	//create a form to ask about the salary, gender and number of children
-	$("body").html(`<form></form>`);
-	$("form").append(`Salary<input id="salary" type="text" value=" ">`);
-	$("form").append(`</br><p>Gender:</p>`);
-	$("form").append(`Male<input id="male" type="radio" name="gender" value="male">`); 
-	$("form").append(`</br>Female<input id="female" type="radio" name="gender" value="female">`); 
-	$("form").append(`</br></br>Number of child(ren)<input id="children" type="text" value=" ">`);
-	$("form").append(`</br></br><button>Check your netto salary</button>`);
-	$("form").append(`</br></br><div id="netto"></div>`);
+	$("body").html("<div id=\"myForm\"></div>");
+	$("#myForm").append("Salary<input id=\"salary\" type=\"text\" value=\" \">");
+	$("#myForm").append("</br><p>Gender:</p>");
+	$("#myForm").append("Male<input id=\"male\" type=\"radio\" name=\"gender\" value=\"male\">"); 
+	$("#myForm").append("</br>Female<input id=\"female\" type=\"radio\" name=\"gender\" value=\"female\">"); 
+	$("#myForm").append("</br></br>Number of child(ren)<input id=\"children\" type=\"text\" value=\" \">");
+	$("#myForm").append("</br></br><button>Check your netto salary</button>");
+	$("#myForm").append("</br></br><div id=\"netto\"></div>");
 	
-	$("button").click(function(){
-			
-				let salary =new Number($("#salary").val());
-	            let children =new Number($("#children").val());
-	            let gender =$("input[name=gender]:checked").val();
-				
-				let costs= salary*(0.18+0.07+0.05);
-				let genderDiscounts;
-				if(gender=="female"){
-					genderDiscounts=costs*0.02;
-				} else {
-					genderDiscounts=0;
-				}
-				let childrenDiscounts;
-				if(children>=4){
-					childrenDiscounts=costs*0.02;
-				}else if(children>=3){
-					childrenDiscounts=costs*0.01;
-				} else {
-					childrenDiscounts=0;
-				}
-				
-				let nettoSalary = salary-costs+genderDiscounts+childrenDiscounts; 
-				
-                $("#netto").text("Your netto salary is "+nettoSalary+ " ."); 
-               
-			}); 
-			
+	$("button").click(function() {	
+		let salary = new Number($("#salary").val());
+		let children = new Number($("#children").val());
+		let gender = $("input[name=gender]:checked").val();
+		
+		let costs = salary * (0.18 + 0.07 + 0.05);
+		let genderDiscounts;
+		if(gender == "female") {
+			genderDiscounts = costs * 0.02;
+		} else {
+			genderDiscounts = 0;
+		}
+		let childrenDiscounts;
+		if(children >= 4) {
+			childrenDiscounts = costs * 0.02;
+		} else if(children >= 3) {
+			childrenDiscounts = costs * 0.01;
+		} else {
+			childrenDiscounts = 0;
+		}
+		let nettoSalary = salary - costs + genderDiscounts + childrenDiscounts; 
+		$("#netto").text("Your netto salary is "+nettoSalary+ " ."); 
+	}); 
 });	
-			
+
 		</script>
 		<title>jQuery : Opdrachten-4.2</title>
 	</head>
 	<body>
-    
-
-	</div>
 	
-
     </body>
 </html>

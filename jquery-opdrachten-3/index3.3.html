@@ -17,18 +17,20 @@
 	via een alert. */
 
 $(document).ready(function(){
-		$("body").html(`<input type="text" value=" ">`); 
+	
+	
+    	$("body").html(`<input type="text" value=" ">`); 
 		$("input").before("<p>Please enter  a number between 0 and 100.</p>");
 		$("input").after("<button >Check your number</button>");
 		$("button").after(`<div id="hint"></div>`)
-		
+
 		let i=0;
 	$("button").click(function(){
 		let num = new Number($("input:text").val());
 		
 		i++;
 		if(num==78){
-			alert("Juist. Je hebt "+ i++ +"keer geraden.");
+			alert("Juist. Je hebt "+ i++ +" keer geraden.");
 		} else {
             if(num<78){
 			$("#hint").text("meer");
@@ -47,8 +49,7 @@ $(document).ready(function(){
 		<title>jQuery : Opdrachten-3.3</title>
 	</head>
 	<body>
-   
+	
 		
-
     </body>
 </html>
